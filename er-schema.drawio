@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net" modified="2026-11-05T14:00:00.000Z" agent="netology-hw" version="22.0.0">
+  <diagram id="er1" name="ER hw-12-1">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="t1" value="department_types&#xa;─────────────&#xa;PK department_type_id SERIAL&#xa;type_name VARCHAR(50)" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=Courier New;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="280" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t2" value="departments&#xa;─────────────&#xa;PK department_id SERIAL&#xa;department_name VARCHAR(200)&#xa;FK department_type_id INTEGER" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=Courier New;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="300" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t3" value="positions&#xa;─────────────&#xa;PK position_id SERIAL&#xa;position_title VARCHAR(150)" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=Courier New;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="420" y="40" width="280" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t4" value="branches&#xa;─────────────&#xa;PK branch_id SERIAL&#xa;region VARCHAR(100)&#xa;city VARCHAR(100)&#xa;street_address VARCHAR(200)&#xa;full_address VARCHAR(300)" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=Courier New;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="780" y="40" width="320" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t5" value="employees&#xa;─────────────&#xa;PK employee_id SERIAL&#xa;last_name VARCHAR(100)&#xa;first_name VARCHAR(100)&#xa;middle_name VARCHAR(100)&#xa;salary NUMERIC(12,2)&#xa;hire_date DATE&#xa;FK position_id INTEGER&#xa;FK department_id INTEGER&#xa;FK branch_id INTEGER" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=Courier New;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="400" y="220" width="340" height="230" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t6" value="projects&#xa;─────────────&#xa;PK project_id SERIAL&#xa;project_name VARCHAR(200)" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=Courier New;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="1180" y="260" width="280" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t7" value="employee_projects&#xa;─────────────&#xa;PK,FK employee_id INTEGER&#xa;PK,FK project_id INTEGER" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=Courier New;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="820" y="520" width="320" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="t1" target="t2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="t2" target="t5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="t3" target="t5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="t4" target="t5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="t5" target="t7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="t6" target="t7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
